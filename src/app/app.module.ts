@@ -12,6 +12,10 @@ import { AngularFireDatabaseModule} from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { PrincipalComponent } from './componentes/principal/principal.component';
+import { RegistrarComponent } from './componentes/registrar/registrar.component';
+import { PrincipalClienteComponent } from './componentes/principal-cliente/principal-cliente.component';
+import { PrincipalRecepcionistaComponent } from './componentes/principal-recepcionista/principal-recepcionista.component';
+import { PrincipalEspecialistaComponent } from './componentes/principal-especialista/principal-especialista.component';
 
 
 @NgModule({
@@ -19,6 +23,10 @@ import { PrincipalComponent } from './componentes/principal/principal.component'
     AppComponent,
     LoginComponent,
     PrincipalComponent,
+    RegistrarComponent,
+    PrincipalClienteComponent,
+    PrincipalRecepcionistaComponent,
+    PrincipalEspecialistaComponent,
   ],
   imports: [
     BrowserModule,

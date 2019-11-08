@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
   {
     this.authService.LoginUsuario(this.email, this.clave).then((res)=>
     {
+      //Aca iria algo para que depende de que usuario sea va a tal lado
       this.router.navigate(['/Principal']);
     }).catch(error=>
       {
