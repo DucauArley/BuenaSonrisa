@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
   {
     this.authService.LoginUsuario(this.email, this.clave).then((res)=>
     {
+<<<<<<< HEAD
       let entro: boolean = false;
       this.usuarios.forEach(user =>
         {
@@ -72,6 +73,10 @@ export class LoginComponent implements OnInit {
           this.email = "";
           this.clave = "";
         }
+=======
+      //Aca iria algo para que depende de que usuario sea va a tal lado
+      this.router.navigate(['/Principal']);
+>>>>>>> ec4042b1d7c857c835c905a50336478920085b4d
     }).catch(error=>
       {
           alert("Error");

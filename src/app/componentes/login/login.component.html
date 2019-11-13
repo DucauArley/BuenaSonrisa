@@ -9,9 +9,14 @@
 
            <label><b style="color: #F9AF38">Clave</b></label>
            <input type="password" placeholder="Clave"  [(ngModel)]="clave" name="psw" required>
+<<<<<<< HEAD
            <re-captcha (resolved)="resolved($event)" siteKey="6LeAl6gUAAAAAL7qrGMdJOxsTLP64CuSrndOVjIc"></re-captcha>
 
            <button *ngIf="captcha" (click)="Loguearse()" >Ingresar</button>
+=======
+
+           <button  (click)="Loguearse()" >Ingresar</button>
+>>>>>>> ec4042b1d7c857c835c905a50336478920085b4d
 
          </div>
 
@@ -20,11 +25,14 @@
            <button type="button" class="aceptbtn" routerLink="/Registrar" >Registrarse</button>
          </div>
 
+<<<<<<< HEAD
          <button (click)="admin()" >Admin</button>
          <button (click)="especialista()" >Especialista</button>
          <button (click)="recepcionista()" >Recepcionista</button>
          <button (click)="cliente()" >Cliente</button>
 
+=======
+>>>>>>> ec4042b1d7c857c835c905a50336478920085b4d
        </form>
      </div>
    </div>
