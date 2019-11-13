@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-md-12">
+        <table class="table" cellspacing="0" style="text-align: center">
+            <thead>
+                <tr>
+                <th>Consultorio</th>
+                <th>Estado</th>
+                <th>Especialista</th>
+                    </tr>
+            </thead>
+            <tbody style="text-align: center" *ngFor="let consult of consultorios">
+                <tr >
+                    <td>{{consult.nombre}}</td>
+                    <td>{{consult.estado}}</td>
+                    <td>-------</td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+</div>

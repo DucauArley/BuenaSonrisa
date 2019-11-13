@@ -2,34 +2,33 @@
     <div class="container" >
      <div class="jumbotron" style="padding:50px; background-color: #F84944;">
        <form action="return true;">
-         <div class="imgcontainer">
-           <img src="./assets/imagenes/login.png" alt="Avatar" class="avatar" max-width="104" >
-         </div>
-   
+
          <div class="container">
            <label><b style="color: #F9AF38">Email</b></label>
            <input type="text" placeholder="Email"  [(ngModel)]="email"  name="uname" required>
-   
+
            <label><b style="color: #F9AF38">Clave</b></label>
            <input type="password" placeholder="Clave"  [(ngModel)]="clave" name="psw" required>
-               
-           <button  (click)="Loguearse()" >Ingresar</button>
-          
+           <re-captcha (resolved)="resolved($event)" siteKey="6LeAl6gUAAAAAL7qrGMdJOxsTLP64CuSrndOVjIc"></re-captcha>
+
+           <button *ngIf="captcha" (click)="Loguearse()" >Ingresar</button>
+
          </div>
-   
+
          <div class="container" style="background-color: #F9AF38">
            <button type="button" class="cancelbtn" routerLink="/Principal">Cancelar</button>
-           <button type="button" class="aceptbtn" routerLink="/Registro" >Registrarse</button>
+           <button type="button" class="aceptbtn" routerLink="/Registrar" >Registrarse</button>
          </div>
-        
+
+         <button (click)="admin()" >Admin</button>
+         <button (click)="especialista()" >Especialista</button>
+         <button (click)="recepcionista()" >Recepcionista</button>
+         <button (click)="cliente()" >Cliente</button>
+
        </form>
      </div>
    </div>
-   <div id="snackbar">{{Mensajes}}</div>
    </body>
-
-
-
 
 
 <!--div class="container">
