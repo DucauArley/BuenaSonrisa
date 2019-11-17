@@ -19,12 +19,9 @@ import { RegistrarComponent } from './componentes/registrar/registrar.component'
 import { PrincipalClienteComponent } from './componentes/principal-cliente/principal-cliente.component';
 import { PrincipalRecepcionistaComponent } from './componentes/principal-recepcionista/principal-recepcionista.component';
 import { PrincipalEspecialistaComponent } from './componentes/principal-especialista/principal-especialista.component';
-<<<<<<< HEAD
 import { AltaUsuarioComponent } from './componentes/alta-usuario/alta-usuario.component';
 import { ConsultoriosOcupadosComponent } from './componentes/consultorios-ocupados/consultorios-ocupados.component';
 import { AltaTurnoComponent } from './componentes/alta-turno/alta-turno.component';
-=======
->>>>>>> ec4042b1d7c857c835c905a50336478920085b4d
 
 
 @NgModule({
@@ -36,12 +33,9 @@ import { AltaTurnoComponent } from './componentes/alta-turno/alta-turno.componen
     PrincipalClienteComponent,
     PrincipalRecepcionistaComponent,
     PrincipalEspecialistaComponent,
-<<<<<<< HEAD
     AltaUsuarioComponent,
     ConsultoriosOcupadosComponent,
     AltaTurnoComponent,
-=======
->>>>>>> ec4042b1d7c857c835c905a50336478920085b4d
   ],
   imports: [
     BrowserModule,
