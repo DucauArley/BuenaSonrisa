@@ -72,8 +72,6 @@ export class LoginComponent implements OnInit {
           this.email = "";
           this.clave = "";
         }
-      //Aca iria algo para que depende de que usuario sea va a tal lado
-      this.router.navigate(['/Principal']);
     }).catch(error=>
       {
           alert("Error");
