@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AuthService } from  './../../servicios/auth.service';
 import { Router } from '@angular/router';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
@@ -10,6 +10,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 })
 export class AltaUsuarioComponent implements OnInit {
 
+  @Output() cerrarAltaUsuario: EventEmitter<any> = new EventEmitter<any>();
   email: string = "";
   clave: string = "";
   public tipoUsuario:string = "recepcionista";

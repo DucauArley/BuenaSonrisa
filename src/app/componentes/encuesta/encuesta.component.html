@@ -1,0 +1,19 @@
+<form class="contenedor" id="form" style="padding: 50px;">
+
+    <h2>Encuesta:</h2>
+    <label>Puntuacion clinica</label>
+    <input type="number"  class="ok" name="pCli" id="pCli" min="1" max="10" pattern="^[0-9]+" [(ngModel)]="clinica"/>
+ 
+    <label>Puntuacion especialista</label>
+    <input type="number" class="ok" name="pEs" id="pEs" min="1" max="10" pattern="^[0-9]+" [(ngModel)]="especialista">
+  
+    <label>Reseña</label>
+    <input type="text" class="ok" name="res" id="res" maxlength="66" [(ngModel)]="resenia"><br>
+  
+      <button (click)="crear()">Pedir turno</button>
+  
+  
+    <button class="cancelbtn" (click)="cerrarEncuesta.emit()">Cerrar</button>
+  
+  </form>
+          

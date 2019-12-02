@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-md-12">
+        <h1>Lista de Turnos:</h1>
+        <table class="tabla" cellspacing="0" style="text-align: center">
+            <thead>
+                <tr>
+                    <th>Cliente</th>
+                    <th>Especialidad</th>
+                    <th>Fecha</th>
+                    <th>Horario</th>
+                </tr>
+            </thead>
+            <tbody style="text-align: center" *ngFor="let tur of turnos">
+                <tr>
+                    <td>{{tur.cliente}}</td> 
+                    <td>{{tur.especialidad}}</td>
+                    <td>{{tur.fecha}}</td>
+                    <td>{{tur.horario}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

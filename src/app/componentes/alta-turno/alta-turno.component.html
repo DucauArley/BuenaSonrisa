@@ -1,49 +1,29 @@
-<body class="panel">
-    <div class="container" >
-        <div class="jumbotron" style="padding:50px; background-color: #F84944;">
-            <form action="return true;">
-        
-                <div class="container">
-                <label><b style="color: #F9AF38">Indique la fecha del turno</b></label>
-                   <input type="datetime-local" class="form-control" required name="BornDate" id="BornDate"  placeholder="fecha de turno" [(ngModel)]="fechaTurno"/>
+<form class="contenedor" id="form" style="padding: 50px;">
 
-                   <label><b style="color: #F9AF38">Tipo de especialidad</b></label>
-                   <select class="form-control" name="name" id="name" required [(ngModel)]="especialidad"
-                        >
-                        <option value="Mecanica">Mecanica dental</option>
-                        <option value="Imagenes">Imagenes</option>
-                        <option value="Clinico">Clinico</option>
-                     </select> 
+  <h2>Pedir Turno:</h2>
 
-                     <!--div *ngIf="unTurno.especialidad" >
-                        <label>Seleccione profesional</label>
-                        <select  >
-                          <option *ngFor="let esp of lista" id="nombre">{{esp.nombre}}</option>
-                        </select>
-                      </div>
-                        <br><br>
-                  
-                        <div class="form-group">
-                      <label for="BornDate" class="cols-sm-2 control-label">Fecha de Nacimiento</label>
-                      <div class="cols-sm-10">
-                        <div class="input-group">
-                                
-                          <input type="button" class="form-control"   value="Enviar" (click)="enviar()"/>
-                        </div>
-                      </div>
-                     </div-->
+  <div *ngIf="recepcion">
+    <label>Email</label>
+    <input type="text"  class="ok" required name="mail" id="mail" [(ngModel)]="mail"/>
+  </div>
 
-                   <button (click)="algo()">Pedir turno</button>
-        
-                 </div>
-        
-                 <div class="container" style="background-color: #F9AF38">
-                   <button type="button" class="cancelbtn" routerLink="/Principal">Cancelar</button>
-                   <button type="button" class="aceptbtn" routerLink="/Registrar" >Registrarse</button>
-                 </div>
-        
-            </form>
-        </div>
-    </div>
-</body>
+  <label>Indique la fecha del turno</label>
+  <input type="date"  class="ok" required name="turno" id="turno" [(ngModel)]="fechaTurno"/>
+
+  <label>Indique el horario del turno</label>
+  <input type="time" class="ok" name="hora" id="hora" [(ngModel)]="horario">
+
+  <label>Tipo de especialidad</label>
+    <select class="ok" name="esp" id="esp" required [(ngModel)]="especialidad">
+      <option value="Mecanica">Mecanica dental</option>
+      <option value="Imagenes">Imagenes</option>
+      <option value="Clinico">Clinico</option>
+    </select>  
+
+    <button (click)="crear()">Pedir turno</button>
+
+
+  <button class="cancelbtn" (click)="cerrarAltaTurno.emit()">Cerrar</button>
+
+</form>
         

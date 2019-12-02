@@ -22,6 +22,9 @@ import { PrincipalEspecialistaComponent } from './componentes/principal-especial
 import { AltaUsuarioComponent } from './componentes/alta-usuario/alta-usuario.component';
 import { ConsultoriosOcupadosComponent } from './componentes/consultorios-ocupados/consultorios-ocupados.component';
 import { AltaTurnoComponent } from './componentes/alta-turno/alta-turno.component';
+import { ListaTurnosComponent } from './componentes/lista-turnos/lista-turnos.component';
+import { EncuestaComponent } from './componentes/encuesta/encuesta.component';
+import { ReseniaComponent } from './componentes/resenia/resenia.component';
 
 
 @NgModule({
@@ -36,6 +39,9 @@ import { AltaTurnoComponent } from './componentes/alta-turno/alta-turno.componen
     AltaUsuarioComponent,
     ConsultoriosOcupadosComponent,
     AltaTurnoComponent,
+    ListaTurnosComponent,
+    EncuestaComponent,
+    ReseniaComponent,
   ],
   imports: [
     BrowserModule,

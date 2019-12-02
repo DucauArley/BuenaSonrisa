@@ -3,7 +3,7 @@
 
       <!--Creo que tendria que hacer un principal para todos los tipos de empleados-->
           <li class="color1">
-            <a routerLink="/Juegos">
+            <a (click)="altaTurno = true">
               <div class="media">
                 <div class="media-left">
                 </div>
@@ -13,6 +13,9 @@
                 </div>
               </div>
             </a>
+
+            <app-alta-turno (cerrarAltaTurno)="altaTurno = false" [recepcion]="true" [turnos]="turnos" *ngIf="altaTurno"></app-alta-turno>
+
           <li class="color1 ">
               <a routerLink="/Listado">
                 <div class="media">

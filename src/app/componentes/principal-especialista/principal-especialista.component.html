@@ -26,7 +26,7 @@
               </a>
             </li>
           <li class="color1">
-            <a routerLink="/Juegos">
+            <a (click)="resenia = true">
               <div class="media">
                   <div class="media-left">
                     </div>
@@ -37,4 +37,6 @@
 
               </div>
             </a>
+
+            <app-resenia (cerrarResenia)="resenia = false" *ngIf="resenia"></app-resenia>
   </div>

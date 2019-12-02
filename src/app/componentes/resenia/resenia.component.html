@@ -1,0 +1,10 @@
+<form class="contenedor" id="form" style="padding: 50px;">
+
+    <h2>Reseña:</h2>
+    <input type="text" class="ok" name="res" id="res" maxlength="66" [(ngModel)]="resenia"><br>
+  
+      <button (click)="crear()">Guardar Reseña</button> 
+  
+    <button class="cancelbtn" (click)="cerrarResenia.emit()">Cerrar</button>
+  
+  </form>

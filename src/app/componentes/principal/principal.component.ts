@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrincipalComponent implements OnInit {
 
+  public altaUsuario:boolean = false;
+
   constructor() { }
 
   ngOnInit() {

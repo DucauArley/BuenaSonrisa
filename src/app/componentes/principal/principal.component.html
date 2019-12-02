@@ -47,7 +47,7 @@
                 </div>
               </a>
             <li class="color1">
-              <a routerLink="/AltaUsuario">
+              <a (click)="altaUsuario = true">
                 <div class="media">
                     <div class="media-left">
                       </div>
@@ -57,6 +57,8 @@
                   </div>
                 </div>
               </a>
+
+              <app-alta-usuario (cerrarAltaUsuario)="altaUsuario = false" *ngIf="altaUsuario"></app-alta-usuario>
     </div>
 
     <br>

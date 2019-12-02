@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrincipalEspecialistaComponent implements OnInit {
 
+  public resenia:boolean = false;
+
   constructor() { }
 
   ngOnInit() {

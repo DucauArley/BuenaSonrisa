@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-principal-cliente',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrincipalClienteComponent implements OnInit {
 
-  constructor() { }
+  public altaTurno:boolean = false;
+  public turnos: Array<any>;
+  public encuesta:boolean = false;
 
-  ngOnInit() {
+  constructor(private fireStore: AngularFirestore) { }
+
+  ngOnInit() 
+  {
+    this.turnos = new Array<any>();
+    let turns = this.fireStore.collection("turnos").valueChanges();
+
+    turns.forEach(ped=>
+      {
+        ped.forEach(item=>
+          {
+            this.turnos.push(item);
+          })
+      })
   }
 
 }

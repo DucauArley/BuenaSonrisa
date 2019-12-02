@@ -1,32 +1,27 @@
-<body class="panel">
-        <div class="container" >
-         <div class="jumbotron" style="padding:50px; background-color: #F84944;">
-           <form action="return true;">
-      
-             <div class="container">
-               <label><b style="color: #F9AF38">Email</b></label>
-               <input type="text" placeholder="Email"  [(ngModel)]="email"  name="uname" required>
-      
-               <label><b style="color: #F9AF38">Clave</b></label>
-               <input type="password" placeholder="Clave"  [(ngModel)]="clave" name="psw" required>
-               <div class="row justify-content-center">
-               <label style="color: #F9AF38"><input type="radio" id="r1" name="gender" value="recepcionista" required [(ngModel)]="tipoUsuario" checked>Recepcionista</label>
-               <label style="color: #F9AF38"><input type="radio" id="r2" name="gender" value="especialista" [(ngModel)]="tipoUsuario">Especialista</label>
-               <label style="color: #F9AF38"><input type="radio" id="r3" name="gender" value="cliente" [(ngModel)]="tipoUsuario" >Cliente</label>
-              </div>
 
-              <select [hidden]="tipoUsuario != 'especialista'" class="form-control" name="name" id="name" required [(ngModel)]="especialidad">
-                  <option>Mecanica</option>
-                  <option>Imagenes</option>
-                  <option>Clinico</option>                        
-              </select>
+<form class="contenedor" id="form" style="padding: 50px;">
 
-               <button  (click)="Registrar()">Dar de alta usuario</button>
-               <button type="button" class="cancelbtn" routerLink="/Login">Ir al Login</button>
-             </div>
-      
-           </form>
-         </div>
-       </div>
-       </body>
-      
+  <h2>Alta Usuario:</h2>
+  
+    <label>Email</label>
+    <input type="text" placeholder="Email"  [(ngModel)]="email"  name="uname" required>
+
+    <label>Clave</label>
+    <input type="password" placeholder="Clave"  [(ngModel)]="clave" name="psw" required>
+    <div class="row justify-content-center">
+    <label><input type="radio" id="r1" name="gender" value="recepcionista" required [(ngModel)]="tipoUsuario" checked>Recepcionista</label>
+    <label><input type="radio" id="r2" name="gender" value="especialista" [(ngModel)]="tipoUsuario">Especialista</label>
+    <label><input type="radio" id="r3" name="gender" value="cliente" [(ngModel)]="tipoUsuario" >Cliente</label>
+  </div>
+
+  <select [hidden]="tipoUsuario != 'especialista'" class="form-control" name="name" id="name" required [(ngModel)]="especialidad">
+      <option>Mecanica</option>
+      <option>Imagenes</option>
+      <option>Clinico</option>                        
+  </select>
+
+    <button  (click)="Registrar()">Dar de alta usuario</button>
+
+  <button class="cancelbtn" (click)="cerrarAltaUsuario.emit()">Cerrar</button>
+
+</form>
