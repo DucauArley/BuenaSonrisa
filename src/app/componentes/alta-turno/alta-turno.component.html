@@ -13,16 +13,13 @@
   <label>Indique el horario del turno</label>
   <input type="time" class="ok" name="hora" id="hora" [(ngModel)]="horario">
 
-  <label>Tipo de especialidad</label>
-    <select class="ok" name="esp" id="esp" required [(ngModel)]="especialidad">
-      <option value="Mecanica">Mecanica dental</option>
-      <option value="Imagenes">Imagenes</option>
-      <option value="Clinico">Clinico</option>
+  <label>Especialista</label>
+    <select class="ok" name="esp" id="esp" required [(ngModel)]="especialista">
+      <option *ngFor="let es of especialistas">{{es.email}}</option>
     </select>  
 
     <button (click)="crear()">Pedir turno</button>
-
-
+    
   <button class="cancelbtn" (click)="cerrarAltaTurno.emit()">Cerrar</button>
 
 </form>

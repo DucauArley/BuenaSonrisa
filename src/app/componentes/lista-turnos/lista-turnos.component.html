@@ -5,17 +5,19 @@
             <thead>
                 <tr>
                     <th>Cliente</th>
-                    <th>Especialidad</th>
+                    <th>Especialista</th>
                     <th>Fecha</th>
                     <th>Horario</th>
+                    <th>Estado</th>
                 </tr>
             </thead>
-            <tbody style="text-align: center" *ngFor="let tur of turnos">
+            <tbody style="text-align: center" *ngFor="let tur of info">
                 <tr>
                     <td>{{tur.cliente}}</td> 
-                    <td>{{tur.especialidad}}</td>
+                    <td>{{tur.especialista}}</td>
                     <td>{{tur.fecha}}</td>
                     <td>{{tur.horario}}</td>
+                    <td>{{tur.estado}}</td>
                 </tr>
             </tbody>
         </table>

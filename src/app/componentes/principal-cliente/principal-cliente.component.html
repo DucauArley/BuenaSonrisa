@@ -21,7 +21,7 @@
           <app-alta-turno (cerrarAltaTurno)="altaTurno = false" [recepcion]="false" [turnos]="turnos" *ngIf="altaTurno"></app-alta-turno>
 
           <li class="color1 ">
-              <a routerLink="/ListaTurnos">
+              <a (click)="ruteando()">
                 <div class="media">
                     <div class="media-left">
                       </div>

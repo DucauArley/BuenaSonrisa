@@ -15,17 +15,44 @@ export class AltaTurnoComponent implements OnInit {
   @Output() cerrarAltaTurno: EventEmitter<any> = new EventEmitter<any>();
   @Input() turnos: any;
   @Input() recepcion:boolean;
+  public usuarios: Array<any>;
+  public especialistas: Array<any>;
   public fechaTurno: string;
-  public especialidad: string = "Mecanica";
+  public especialista: string;
   public horario:number;
   public mail:string;
   
-  constructor(private fireStore: AngularFirestore, private datePipe: DatePipe) { }
+  constructor(private fireStore: AngularFirestore, private datePipe: DatePipe)
+  { 
+    this.usuarios = new Array<any>();
 
-  ngOnInit() {
+    let users = this.fireStore.collection("usuarios").valueChanges();
+
+    users.forEach(us=>
+      {
+        us.forEach(item=>
+          {
+            this.usuarios.push(item);
+          })
+      });
+
   }
 
-
+  ngOnInit() 
+  {
+    setTimeout(()=>{
+      this.especialistas = new Array<any>();
+      
+      this.usuarios.forEach(user=>
+        {
+          console.log("entra");
+          if(user.tipo == "especialista")
+          {
+            this.especialistas.push(user);
+          }
+        });
+    }, 1000);
+  }
 
   crear()
   {
@@ -36,9 +63,9 @@ export class AltaTurnoComponent implements OnInit {
     {
       if(!this.recepcion)
       {
-        this.fireStore.collection("turnos").doc(this.especialidad + this.fechaTurno).set({
+        this.fireStore.collection("turnos").doc(this.especialista + this.fechaTurno).set({
           fecha: this.fechaTurno,
-          especialidad: this.especialidad,
+          especialista: this.especialista,
           hora: this.horario,
           cliente: email,
           estado: "Solicitado"
@@ -50,9 +77,9 @@ export class AltaTurnoComponent implements OnInit {
 
       if(this.recepcion)
       {
-        this.fireStore.collection("turnos").doc(this.especialidad + this.fechaTurno).set({
+        this.fireStore.collection("turnos").doc(this.especialista + this.fechaTurno).set({
           fecha: this.fechaTurno,
-          especialidad: this.especialidad,
+          especialidad: this.especialista,
           hora: this.horario,
           cliente: this.mail,
           estado: "Solicitado"
@@ -63,7 +90,7 @@ export class AltaTurnoComponent implements OnInit {
       }
 
       console.log(this.fechaTurno);
-      console.log(this.especialidad);
+      console.log(this.especialista);
       console.log(this.horario)
       console.log(email);
 
@@ -91,7 +118,7 @@ export class AltaTurnoComponent implements OnInit {
 
     this.turnos.forEach(tur =>
     {
-      if(tur.fecha == this.fechaTurno && tur.especialidad == this.especialidad)
+      if(tur.fecha == this.fechaTurno && tur.especialista == this.especialista)
       {
         okTur = false;
       }
