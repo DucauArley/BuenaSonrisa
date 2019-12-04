@@ -9,10 +9,9 @@
 
            <label><b style="color: #F9AF38">Clave</b></label>
            <input type="password" placeholder="Clave"  [(ngModel)]="clave" name="psw" required>
-           <re-captcha (resolved)="resolved($event)" siteKey="6LcLuq8UAAAAAKg-NVY7JNSP7KRRW6ZJMN4siNje"></re-captcha>
+           <re-captcha (resolved)="resolved($event)" siteKey="6LfKHsYUAAAAAKbpfXZqJRo0lLAJyATzAHPg9BpN" [useGlobalDomain]="false"></re-captcha>
           <!--6LfKHsYUAAAAAKbpfXZqJRo0lLAJyATzAHPg9BpN  site key-->
           <!--6LfKHsYUAAAAAH3PmIu2BD5oZBiAfhMbHYPe6esw secret key-->
-          <!--6LcLuq8UAAAAAKg-NVY7JNSP7KRRW6ZJMN4siNje funca en el local-->
            <button *ngIf="captcha" (click)="Loguearse()" >Ingresar</button>
          </div>
 
