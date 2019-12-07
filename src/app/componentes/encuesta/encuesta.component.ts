@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { isUndefined } from 'util';
 import * as firebase from 'firebase'
@@ -11,6 +11,7 @@ import * as firebase from 'firebase'
 export class EncuestaComponent implements OnInit {
 
   @Output() cerrarEncuesta: EventEmitter<any> = new EventEmitter<any>();
+  @Input() turno;
   public clinica:number;
   public especialista:number;
   public resenia:string;
@@ -23,15 +24,27 @@ export class EncuestaComponent implements OnInit {
   crear()
   {
     let ok = this.verificar();
-    var email:string = firebase.auth().currentUser.email;
 
     if(ok)
     {
-      this.fireStore.collection("encuestas").doc(email + this.resenia).set({
+      this.fireStore.collection("encuestas").doc(this.turno.cliente + this.resenia).set({
         clinica: this.clinica,
         especialista: this.especialista,
         reseña: this.resenia,
-        cliente: email
+        cliente: this.turno.cliente,
+        nombreEspecialista: this.turno.especialista,
+        fecha: this.turno.fecha
+      }).catch(function(error)
+      {
+        alert("Error al cargar");
+      });
+
+      this.fireStore.collection("turnos").doc(this.turno.especialista + this.turno.fecha).set({
+        cliente: this.turno.cliente,
+        especialista: this.turno.especialista,
+        estado: "Encuestado",
+        fecha: this.turno.fecha,
+        horario: this.turno.horario
       }).catch(function(error)
       {
         alert("Error al cargar");
@@ -40,7 +53,6 @@ export class EncuestaComponent implements OnInit {
       console.log(this.clinica);
       console.log(this.especialista);
       console.log(this.resenia)
-      console.log(email);
 
       this.cerrarEncuesta.emit();
 

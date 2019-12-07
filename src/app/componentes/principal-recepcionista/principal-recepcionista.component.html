@@ -13,9 +13,6 @@
                 </div>
               </div>
             </a>
-
-            <app-alta-turno (cerrarAltaTurno)="altaTurno = false" [recepcion]="true" [turnos]="turnos" *ngIf="altaTurno"></app-alta-turno>
-
           <li class="color1 ">
               <a routerLink="/Listado">
                 <div class="media">
@@ -40,5 +37,39 @@
 
               </div>
             </a>
+
   </div>
+
+  <div class="row">
+    <div class="col-md-12">
+        <h1>Lista de Turnos:</h1>
+        <table class="tabla" cellspacing="0" style="text-align: center">
+            <thead>
+                <tr>
+                    <th>Cliente</th>
+                    <th>Especialista</th>
+                    <th>Fecha</th>
+                    <th>Horario</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody style="text-align: center" *ngFor="let tur of info">
+                <tr>
+                    <td>{{tur.cliente}}</td> 
+                    <td>{{tur.especialista}}</td>
+                    <td>{{tur.fecha}}</td>
+                    <td>{{tur.horario}}</td>
+                    <td>{{tur.estado}}</td>
+                    <td>
+                      <app-cancelar-turno *ngIf="tur.estado == Solicitado" [btnTur]="tur" (recargarGrilla)="cargarPelis($event)"></app-cancelar-turno>
+                  </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<app-alta-turno (cerrarAltaTurno)="altaTurno = false" [recepcion]="true" [turnos]="turnos" *ngIf="altaTurno"></app-alta-turno>
+
+
 </body>
+

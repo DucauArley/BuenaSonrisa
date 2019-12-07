@@ -25,6 +25,8 @@ import { AltaTurnoComponent } from './componentes/alta-turno/alta-turno.componen
 import { ListaTurnosComponent } from './componentes/lista-turnos/lista-turnos.component';
 import { EncuestaComponent } from './componentes/encuesta/encuesta.component';
 import { ReseniaComponent } from './componentes/resenia/resenia.component';
+import { CancelarTurnoComponent } from './componentes/cancelar-turno/cancelar-turno.component';
+import { ReseniaDetalleComponent } from './componentes/resenia-detalle/resenia-detalle.component';
 
 
 @NgModule({
@@ -42,6 +44,8 @@ import { ReseniaComponent } from './componentes/resenia/resenia.component';
     ListaTurnosComponent,
     EncuestaComponent,
     ReseniaComponent,
+    CancelarTurnoComponent,
+    ReseniaDetalleComponent,
   ],
   imports: [
     BrowserModule,

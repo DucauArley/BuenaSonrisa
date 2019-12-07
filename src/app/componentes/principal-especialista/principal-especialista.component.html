@@ -38,5 +38,37 @@
               </div>
             </a>
 
-            <app-resenia (cerrarResenia)="resenia = false" *ngIf="resenia"></app-resenia>
+            <app-resenia [turno]="turno" (cerrarResenia)="resenia = false" *ngIf="resenia"></app-resenia>
+            <app-resenia-detalle [turno]="turno" (cerrarResenia)="resenia2 = false" *ngIf="resenia2"></app-resenia-detalle>
   </div>
+
+  <div class="row">
+    <div class="col-md-12">
+        <h1>Lista de Turnos:</h1>
+        <table class="tabla" cellspacing="0" style="text-align: center">
+            <thead>
+                <tr>
+                    <th>Cliente</th>
+                    <th>Especialista</th>
+                    <th>Fecha</th>
+                    <th>Horario</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody style="text-align: center" *ngFor="let tur of info">
+                <tr>
+                    <td>{{tur.cliente}}</td> 
+                    <td>{{tur.especialista}}</td>
+                    <td>{{tur.fecha}}</td>
+                    <td>{{tur.horario}}</td>
+                    <td>{{tur.estado}}</td>
+                    <td *ngIf="tur.estado == 'Solicitado'"><button title="atender" type="button" class="button btn btn-danger" (click)="atender(tur)">Atender</button></td>
+                    <td *ngIf="tur.estado == 'Atendido'"><button title="res" type="button" class="button btn btn-danger" (click)="reseniar(tur, 0)">Hacer Reseña</button></td>
+                    <td *ngIf="tur.estado == 'Finalizado'|| tur.estado == 'Encuestado'"><button title="ver" type="button" class="button btn btn-danger" (click)="reseniar(tur, 1)">Ver Reseña</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>

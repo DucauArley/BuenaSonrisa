@@ -15,10 +15,11 @@ export class AltaTurnoComponent implements OnInit {
   @Output() cerrarAltaTurno: EventEmitter<any> = new EventEmitter<any>();
   @Input() turnos: any;
   @Input() recepcion:boolean;
+  @Input() email: any;
   public usuarios: Array<any>;
   public especialistas: Array<any>;
   public fechaTurno: string;
-  public especialista: string;
+  public especialista: string = "especialista@especialista.com";
   public horario:number;
   public mail:string;
   
@@ -45,7 +46,6 @@ export class AltaTurnoComponent implements OnInit {
       
       this.usuarios.forEach(user=>
         {
-          console.log("entra");
           if(user.tipo == "especialista")
           {
             this.especialistas.push(user);
@@ -57,7 +57,8 @@ export class AltaTurnoComponent implements OnInit {
   crear()
   {
     let ok = this.verificar();
-    var email:string = firebase.auth().currentUser.email;
+
+    console.log(this.email);
 
     if(ok)
     {
@@ -66,8 +67,8 @@ export class AltaTurnoComponent implements OnInit {
         this.fireStore.collection("turnos").doc(this.especialista + this.fechaTurno).set({
           fecha: this.fechaTurno,
           especialista: this.especialista,
-          hora: this.horario,
-          cliente: email,
+          horario: this.horario,
+          cliente: this.email,
           estado: "Solicitado"
         }).catch(function(error)
         {
@@ -79,8 +80,8 @@ export class AltaTurnoComponent implements OnInit {
       {
         this.fireStore.collection("turnos").doc(this.especialista + this.fechaTurno).set({
           fecha: this.fechaTurno,
-          especialidad: this.especialista,
-          hora: this.horario,
+          especialista: this.especialista,
+          horario: this.horario,
           cliente: this.mail,
           estado: "Solicitado"
         }).catch(function(error)
@@ -92,7 +93,6 @@ export class AltaTurnoComponent implements OnInit {
       console.log(this.fechaTurno);
       console.log(this.especialista);
       console.log(this.horario)
-      console.log(email);
 
       this.cerrarAltaTurno.emit();
 
@@ -107,18 +107,22 @@ export class AltaTurnoComponent implements OnInit {
     document.getElementById("turno").classList.remove("error");
     document.getElementById("esp").classList.remove("error");
     document.getElementById("hora").classList.remove("error");
-    document.getElementById("mail").classList.remove("error");
 
     document.getElementById("turno").classList.add("ok");
     document.getElementById("esp").classList.add("ok");
     document.getElementById("hora").classList.add("ok");
-    document.getElementById("mail").classList.add("ok");
+
+    if(this.recepcion == true)
+    {
+      document.getElementById("mail").classList.remove("error");
+      document.getElementById("mail").classList.add("ok");
+    }
 
     fecha = this.datePipe.transform(fecha, 'yyyy-MM-dd');
 
     this.turnos.forEach(tur =>
     {
-      if(tur.fecha == this.fechaTurno && tur.especialista == this.especialista)
+      if(tur.fecha == this.fechaTurno && tur.especialista == this.especialista && tur.horario == this.horario)
       {
         okTur = false;
       }
@@ -164,6 +168,10 @@ export class AltaTurnoComponent implements OnInit {
         retorno = false;
       }
     }
+
+      console.log(this.fechaTurno);
+      console.log(this.especialista);
+      console.log(this.horario)
 
     return retorno;
   }
