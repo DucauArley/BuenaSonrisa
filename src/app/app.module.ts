@@ -27,6 +27,11 @@ import { EncuestaComponent } from './componentes/encuesta/encuesta.component';
 import { ReseniaComponent } from './componentes/resenia/resenia.component';
 import { CancelarTurnoComponent } from './componentes/cancelar-turno/cancelar-turno.component';
 import { ReseniaDetalleComponent } from './componentes/resenia-detalle/resenia-detalle.component';
+import { SpinnerComponent } from './componentes/spinner/spinner.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { EstadisticasEmpleadosComponent } from './componentes/estadisticas-empleados/estadisticas-empleados.component';
+import { EstadisticasTurnosComponent } from './componentes/estadisticas-turnos/estadisticas-turnos.component';
+import { EstadisticasEspecialidadesComponent } from './componentes/estadisticas-especialidades/estadisticas-especialidades.component';
 
 
 @NgModule({
@@ -46,11 +51,16 @@ import { ReseniaDetalleComponent } from './componentes/resenia-detalle/resenia-d
     ReseniaComponent,
     CancelarTurnoComponent,
     ReseniaDetalleComponent,
+    SpinnerComponent,
+    EstadisticasEmpleadosComponent,
+    EstadisticasTurnosComponent,
+    EstadisticasEspecialidadesComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    NgxSpinnerModule,
     RecaptchaModule,
     RecaptchaModule.forRoot(),
     AngularFireStorageModule,

@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-md-12">
+        <!--Despues hago la otra parte porque tengo que poner algo de firebase en el login para escribir quien ingresa y demas-->
+        <h1>Lista de Turnos:</h1>
+        <select class="ok" name="name" id="name" (change)="ngOnInit()" required [(ngModel)]="especialidad">
+            <option>Mecanica</option>
+            <option>Imagenes</option>
+            <option>Clinico</option>                        
+        </select><br>
+        <table class="tabla" cellspacing="0" style="text-align: center">
+            <thead>
+                <tr>
+                    <th>Cliente</th>
+                    <th>Especialista</th>
+                    <th>Fecha</th>
+                    <th>Horario</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody style="text-align: center" *ngFor="let tur of info">
+                <tr>
+                    <td>{{tur.cliente}}</td> 
+                    <td>{{tur.especialista}}</td>
+                    <td>{{tur.fecha}}</td>
+                    <td>{{tur.horario}}</td>
+                    <td>{{tur.estado}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
