@@ -1,53 +1,11 @@
 <app-spinner></app-spinner>
 
 <body class="panel">
-  <div class="container" >
-
-      <!--Creo que tendria que hacer un principal para todos los tipos de empleados-->
-          <li class="color1">
-            <a (click)="ruteando()">
-              <div class="media">
-                <div class="media-left">
-                </div>
-                <div class="media-body">
-                  <h3 class="media-heading">Turnos por fecha</h3>
-                  <p>Ver los turnos que se tienen por fecha</p>
-                </div>
-              </div>
-            </a>
-          <li class="color1 ">
-              <a routerLink="/Listado">
-                <div class="media">
-                    <div class="media-left">
-                      </div>
-                  <div class="media-body">
-                    <h3 class="media-heading">Marcar pacientes que vinieron</h3>
-                  </div>
-
-                </div>
-              </a>
-            </li>
-          <li class="color1">
-            <a (click)="resenia = true">
-              <div class="media">
-                  <div class="media-left">
-                    </div>
-                <div class="media-body">
-                  <h3 class="media-heading">Cargar reseña</h3>
-                  <p>permite cargar un breve reseña de los trabajos realizados en el paciente.</p>
-                </div>
-
-              </div>
-            </a>
-
-            <app-resenia [turno]="turno" (cerrarResenia)="resenia = false" *ngIf="resenia"></app-resenia>
-            <app-resenia-detalle [turno]="turno" (cerrarResenia)="resenia2 = false" *ngIf="resenia2"></app-resenia-detalle>
-  </div>
-
-  <div class="row">
-    <div class="col-md-12">
+            
+  <div class="row hero-text">
+    <div class="col-md-12 color2">
         <h1>Lista de Turnos:</h1>
-        <table class="tabla" cellspacing="0" style="text-align: center">
+        <table class="tabla table table-info" id="tabla" cellspacing="0" style="text-align: center">
             <thead>
                 <tr>
                     <th>Cliente</th>
@@ -71,6 +29,10 @@
             </tbody>
         </table>
     </div>
+    <button class="cancelbtn" (click)="generatePdf()">Hacer pdf</button>
 </div>
+<app-resenia [turno]="turno" (cerrarResenia)="resenia = false" *ngIf="resenia"></app-resenia>
+<app-resenia-detalle [turno]="turno" (cerrarResenia)="resenia2 = false" *ngIf="resenia2"></app-resenia-detalle>
+
 
 </body>

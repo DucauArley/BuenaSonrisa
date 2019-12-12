@@ -3,59 +3,10 @@
 <body class="panel">
   <div class="container" >
 
-      <!--Creo que tendria que hacer un principal para todos los tipos de empleados-->
-          <li class="color1">
-            <a (click)="altaTurno = true">
-              <div class="media">
-                <div class="media-left">
-                </div>
-                <div class="media-body">
-                  <h3 class="media-heading">Pedir turno</h3>
-                  <p>El cliente puede pedir un turno y seleccionar el especialista. Tener en cuenta la
-                    disponibilidad del especialista.
-                    Al realizar la solicitud de turno se le otorgará un código que identifica la sala que le
-                    corresponde</p>
-                </div>
-              </div>
-            </a>
-          </li>
-
-          <li class="color1 ">
-              <a (click)="ruteando()">
-                <div class="media">
-                    <div class="media-left">
-                      </div>
-                  <div class="media-body">
-                    <h3 class="media-heading">Turnos pedidos</h3>
-                  </div>
-
-                </div>
-              </a>
-            </li>
-          
-          <li class="color1">
-            <a (click)="encuesta = true">
-              <div class="media">
-                  <div class="media-left">
-                    </div>
-                <div class="media-body">
-                  <h3 class="media-heading">Hacer encuesta</h3>
-                  <p>Al terminar la visita con el especialista, el cliente podrá realizar una encuesta con una
-                    puntuación del 1 al 10 para:
-                    a-La clínica.
-                    b-El especialista.
-                    c-Y un breve texto de hasta 66 caracteres describiendo la experiencia (buena o
-                    mala) que tuvo en su atención.</p>
-                </div>
-
-              </div>
-            </a>
-          </li>
-
-        <div class="row">
-          <div class="col-md-12">
+        <div class="row hero-text">
+          <div class="col-md-12 color2">
               <h1>Lista de Turnos:</h1>
-              <table class="tabla" cellspacing="0" style="text-align: center">
+              <table class="tabla table table-info" cellspacing="0" style="text-align: center">
                   <thead>
                       <tr>
                           <th>Cliente</th>
@@ -78,6 +29,7 @@
                   </tbody>
               </table>
           </div>
+          <button class="cancelbtn" (click)="altaTurno = true">Pedir Turno</button>
       </div>
 
       <app-resenia-detalle [turno]="turno" (cerrarResenia)="resenia = false" *ngIf="resenia"></app-resenia-detalle>

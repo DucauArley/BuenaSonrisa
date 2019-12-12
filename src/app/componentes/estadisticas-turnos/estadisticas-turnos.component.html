@@ -1,12 +1,22 @@
 <div class="row">
         <div class="col-md-12">
             <h1>Lista de Turnos:</h1>
-            <select class="ok" name="name" id="name" (change)="ngOnInit()" required [(ngModel)]="especialidad">
+            <button (click)="turnosRecepcion()">Turnos emitidos por recepcionistas</button>
+            <button (click)="turnosClientes()">Turnos emitidos por clientes</button>
+            <button (click)="turnosCanceladosEspecialidad()">Turnos cancelados por especialidad</button>
+            <button (click)="turnosRealizadosEspecialidad()">Turnos realizados por especialidad</button>
+
+            <select class="ok" name="name" id="name" *ngIf="turnCanc" (change)="turnosCanceladosEspecialidad()" required [(ngModel)]="especialidad">
                 <option>Mecanica</option>
                 <option>Imagenes</option>
                 <option>Clinico</option>                        
             </select><br>
-            <table class="tabla" cellspacing="0" style="text-align: center">
+            <select class="ok" name="name" id="name" *ngIf="turnReal" (change)="turnosRealizadosEspecialidad()" required [(ngModel)]="especialidad">
+                <option>Mecanica</option>
+                <option>Imagenes</option>
+                <option>Clinico</option>                        
+            </select><br>
+            <table class="tabla table table-info" cellspacing="0" style="text-align: center">
                 <thead>
                     <tr>
                         <th>Cliente</th>

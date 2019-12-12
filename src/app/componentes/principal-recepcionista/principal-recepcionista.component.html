@@ -2,31 +2,7 @@
 
 <body class="panel">
   <div class="container" >
-
-      <!--Creo que tendria que hacer un principal para todos los tipos de empleados-->
-          <li class="color1">
-            <a (click)="altaTurno = true">
-              <div class="media">
-                <div class="media-left">
-                </div>
-                <div class="media-body">
-                  <h3 class="media-heading">Pedir turno</h3>
-                  <p>Para un cliente que llama por telefono o tratamiento pedido por un especialista</p>
-                </div>
-              </div>
-            </a>
-          <li class="color1 ">
-              <a routerLink="/Listado">
-                <div class="media">
-                    <div class="media-left">
-                      </div>
-                  <div class="media-body">
-                    <h3 class="media-heading">Cancelar turnos</h3>
-                  </div>
-
-                </div>
-              </a>
-            </li>
+  
           <li class="color1">
             <a routerLink="/ConsultoriosOcupados">
               <div class="media">
@@ -42,10 +18,11 @@
 
   </div>
 
+<div class="hero-text">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 color2">
         <h1>Lista de Turnos:</h1>
-        <table class="tabla" cellspacing="0" style="text-align: center">
+        <table class="tabla table table-info" cellspacing="0" style="text-align: center">
             <thead>
                 <tr>
                     <th>Cliente</th>
@@ -69,6 +46,8 @@
             </tbody>
         </table>
     </div>
+    <button class="cancelbtn" (click)="altaTurno = true">Pedir Turno</button>
+  </div>
 </div>
 <app-alta-turno (cerrarAltaTurno)="altaTurno = false" [recepcion]="true" [turnos]="turnos" *ngIf="altaTurno"></app-alta-turno>
 

@@ -32,6 +32,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { EstadisticasEmpleadosComponent } from './componentes/estadisticas-empleados/estadisticas-empleados.component';
 import { EstadisticasTurnosComponent } from './componentes/estadisticas-turnos/estadisticas-turnos.component';
 import { EstadisticasEspecialidadesComponent } from './componentes/estadisticas-especialidades/estadisticas-especialidades.component';
+import { HeaderComponent } from './componentes/header/header.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { EstadisticasEspecialidadesComponent } from './componentes/estadisticas-
     EstadisticasEmpleadosComponent,
     EstadisticasTurnosComponent,
     EstadisticasEspecialidadesComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

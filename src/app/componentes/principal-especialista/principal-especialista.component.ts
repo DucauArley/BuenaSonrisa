@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase'
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import html2canvas from 'html2canvas';
+import * as PDF from 'jspdf';
 
 @Component({
   selector: 'app-principal-especialista',
@@ -46,6 +48,26 @@ export class PrincipalEspecialistaComponent implements OnInit {
       });
     }, 1000);
   }
+
+  generatePdf()
+  {
+    var data = document.getElementById('tabla');  
+    html2canvas(data).then(canvas => {  
+      // Few necessary setting options  
+      var imgWidth = 208;   
+      var pageHeight = 295;    
+      var imgHeight = canvas.height * imgWidth / canvas.width;  
+      var heightLeft = imgHeight;  
+  
+      const contentDataURL = canvas.toDataURL('image/png')  
+      let pdf = new PDF('p', 'mm', 'a4'); // A4 size page of PDF  
+      var position = 0;  
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)  
+      pdf.save('Turnos.pdf'); // Generated PDF   
+    });  
+    
+  }  
+
 
   ruteando()
   {
