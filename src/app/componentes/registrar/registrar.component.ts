@@ -34,4 +34,9 @@ export class RegistrarComponent implements OnInit {
       this.router.navigate(['/PrincipalCliente']);
     }).catch(error => console.log("Error:", error));
   }
+
+  onFileChange($event)
+  {
+    
+  }
 }

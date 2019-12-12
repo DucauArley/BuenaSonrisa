@@ -53,4 +53,9 @@ export class AltaUsuarioComponent implements OnInit {
     }).catch(error => console.log("Error:", error));
   }
 
+  onFileChange($event)
+  {
+    
+  }
+
 }
