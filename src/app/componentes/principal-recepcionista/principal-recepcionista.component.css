@@ -17,7 +17,7 @@
 }
 .color2
 {
-  background-color: 	darkgrey;
+  background-color:	darkgrey;
 }
 p
 {
@@ -52,7 +52,7 @@ button {
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: auto;
   }
 .cancelbtn {
     width: auto;

@@ -10,7 +10,16 @@
          <label><b style="color: #F9AF38">Clave</b></label>
          <input type="password" placeholder="Clave"  [(ngModel)]="clave" name="psw" required>
 
-         <button  (click)="Registrar()" >Registrarse</button>
+         <label><b style="color: #F9AF38">Imagen</b></label><br>
+         <input type="file" accept="image/png" (change)="onFileChange($event)" required><br>
+
+         <label><b style="color: #F9AF38">Captcha</b></label>
+         <select class="form-control" name="bot" id="bot" [(ngModel)]="bots">
+            <option>Soy un Robot</option>
+            <option>No soy un Robot</option>
+        </select>
+
+         <button *ngIf="bots == 'No soy un Robot'" (click)="Registrar()" >Registrarse</button>
          <button type="button" class="cancelbtn" routerLink="/Login">Cancelar</button>
        </div>
 

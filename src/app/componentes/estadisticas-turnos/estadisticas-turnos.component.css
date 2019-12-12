@@ -5,16 +5,15 @@
     border-collapse: collapse;
     text-align: left;
     font-size: 15pt;
-    background-color: lightseagreen;
 }
 th
 {
 	background-color: lightseagreen;
 	color: white;
 }
-tr:nth-child(even)
+tr
 {
-	background-color: lightgrey;
+	background-color: white;
 }
 .buttons {
     background-color: #4CAF50;

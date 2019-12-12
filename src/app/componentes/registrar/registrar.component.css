@@ -12,10 +12,6 @@ input[type=text], input[type=password] {
   box-sizing: border-box;
 }
 
-body
-{
-    background: #141D3F;
-}
 button {
   background-color: #4CAF50;
   color: white;

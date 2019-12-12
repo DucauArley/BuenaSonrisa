@@ -1,22 +1,7 @@
 <app-spinner></app-spinner>
+<app-header></app-header>
 
 <body class="panel">
-  <div class="container" >
-  
-          <li class="color1">
-            <a routerLink="/ConsultoriosOcupados">
-              <div class="media">
-                  <div class="media-left">
-                    </div>
-                <div class="media-body">
-                  <h3 class="media-heading">Consultorios ocupados</h3>
-                  <p>Y los proximos a ser ocupados</p>
-                </div>
-
-              </div>
-            </a>
-
-  </div>
 
 <div class="hero-text">
   <div class="row">
@@ -46,7 +31,8 @@
             </tbody>
         </table>
     </div>
-    <button class="cancelbtn" (click)="altaTurno = true">Pedir Turno</button>
+    <button (click)="altaTurno = true">Pedir Turno</button>
+    <button routerLink="/ConsultoriosOcupados" class="cancelbtn">Ver Consultorios</button>
   </div>
 </div>
 <app-alta-turno (cerrarAltaTurno)="altaTurno = false" [recepcion]="true" [turnos]="turnos" *ngIf="altaTurno"></app-alta-turno>

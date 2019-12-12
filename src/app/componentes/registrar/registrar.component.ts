@@ -12,10 +12,9 @@ export class RegistrarComponent implements OnInit {
 
   email: string = "";
   clave: string = "";
+  public bots:string ="Soy un Robot";
 
   constructor(private router: Router, private authService: AuthService, private fireStore: AngularFirestore) { }
-
-  //Para registrar deberia guardar los usuarios en firebase si o si como tipo: clientes
 
   ngOnInit() {
   }

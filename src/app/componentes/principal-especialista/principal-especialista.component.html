@@ -1,4 +1,6 @@
 <app-spinner></app-spinner>
+<app-header></app-header>
+
 
 <body class="panel">
             
@@ -30,6 +32,7 @@
         </table>
     </div>
     <button class="cancelbtn" (click)="generatePdf()">Hacer pdf</button>
+    <button class="cancelbtn" (click)="generateCsv()">Hacer excel</button>
 </div>
 <app-resenia [turno]="turno" (cerrarResenia)="resenia = false" *ngIf="resenia"></app-resenia>
 <app-resenia-detalle [turno]="turno" (cerrarResenia)="resenia2 = false" *ngIf="resenia2"></app-resenia-detalle>

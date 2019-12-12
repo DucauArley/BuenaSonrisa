@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from './../../servicios/auth.service';
+import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 
 @Component({
@@ -10,9 +12,15 @@ export class HeaderComponent implements OnInit {
 
   email:string = firebase.auth().currentUser.email;
 
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  Logout() 
+  {
+    this.authService.LogoutUsuario();
+    this.router.navigate(['/Login']);
   }
 
 }

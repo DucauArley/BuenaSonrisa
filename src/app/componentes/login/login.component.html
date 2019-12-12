@@ -3,6 +3,10 @@
      <div class="jumbotron" style="padding:50px; background-color: #F84944;">
        <form action="return true;">
 
+          <div class="imgcontainer">
+              <img src="./assets/imagenes/login.png" alt="Avatar" class="avatar" >
+            </div>  
+
          <div class="container">
            <label><b style="color: #F9AF38">Email</b></label>
            <input type="text" placeholder="Email"  [(ngModel)]="email"  name="uname" required>
@@ -18,11 +22,13 @@
          <div class="container" style="background-color: #F9AF38">
            <button type="button" class="aceptbtn" routerLink="/Registrar" >Registrarse</button>
          </div>
-         
-         <button (click)="admin()" >Admin</button>
-         <button (click)="especialista()" >Especialista</button>
-         <button (click)="recepcionista()" >Recepcionista</button>
-         <button (click)="cliente()" >Cliente</button>
+
+         <div class="row justify-content-center">
+         <label class="color1"><input type="radio" id="r1" name="user" (change)="admin()" value="admin">Admin</label>
+         <label class="color1"><input type="radio" id="r1" name="user" (change)="recepcionista()" value="recepcionista">Recepcionista</label>
+         <label class="color1"><input type="radio" id="r2" name="user" (change)="especialista()" value="especialista">Especialista</label>
+         <label class="color1"><input type="radio" id="r3" name="user" (change)="cliente()" value="cliente">Cliente</label>
+        </div>
        </form>
      </div>
    </div>

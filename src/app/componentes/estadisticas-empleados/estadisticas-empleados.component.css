@@ -12,9 +12,9 @@ th
 	background-color: lightseagreen;
 	color: white;
 }
-tr:nth-child(even)
+tr
 {
-	background-color: lightgrey;
+	background-color: white;
 }
 button {
     background-color: #4CAF50;

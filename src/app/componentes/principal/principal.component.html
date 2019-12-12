@@ -1,66 +1,18 @@
 <app-spinner></app-spinner>
+<app-header></app-header>
 
 <body class="panel">
     <div class="container center" >
 
-        <!--Creo que tendria que hacer un principal para todos los tipos de empleados-->
-            <li class="color1">
-              <a routerLink="/EstadisticasEmpleados">
-                <div class="media">
-                  <div class="media-left">
-                  </div>
-                  <div class="media-body">
-                    <h3 class="media-heading">Estadisticas de los empleados</h3>
-                    <p>Los dias y horarios que se ingresaron al sistema y la cantidad de turnos realizados de todos por especialidad</p>
-                  </div>
-                </div>
-              </a>
-            <li class="color1 ">
-                <a routerLink="/EstadisticasTurnos">
-                  <div class="media">
-                      <div class="media-left">
-                        </div>
-                    <div class="media-body">
-                      <h3 class="media-heading">Estadisticas de los turnos</h3>
-                      <p>Cantidad de turnos entre fechas dadas.
-                        Cantidad de días sin turnos por especialidad.
-                        Los realizados por especialidad.
-                        Los cancelados por especialidad.
-                        Los realizados por Clientes.
-                        Los realizados por recepcionista.</p>
-                    </div>
-
-                  </div>
-                </a>
-              </li>
-            <li class="color1">
-              <a routerLink="/EstadisticasEspecialidades">
-                <div class="media">
-                    <div class="media-left">
-                      </div>
-                  <div class="media-body">
-                    <h3 class="media-heading">Estadisticas de las especialidades</h3>
-                    <p>La más usada.
-                        La menos usada.
-                        Mejores comentarios.
-                        Peores comentarios</p>
-                  </div>
-
-                </div>
-              </a>
-            <li class="color1">
-              <a (click)="altaUsuario = true">
-                <div class="media">
-                    <div class="media-left">
-                      </div>
-                  <div class="media-body">
-                    <h3 class="media-heading">Alta usuarios</h3>
-                    <p>El admin registra a todos los usuarios menos al cliente que tiene un registro para el</p>
-                  </div>
-                </div>
-              </a>
-
-              <app-alta-usuario (cerrarAltaUsuario)="altaUsuario = false" *ngIf="altaUsuario"></app-alta-usuario>
+      <div class="hero-text color1">
+        <div class="row">
+          <button class="acept2btn" routerLink="/EstadisticasEmpleados">Estadisticas de Empleados</button>
+          <button class="cancelbtn" routerLink="/EstadisticasTurnos">Estadisticas de Turnos</button>
+          <button class="cancel2btn" routerLink="/EstadisticasEspecialidades">Estadisticas de Especialidades</button>
+          <button class="aceptbtn" (click)="altaUsuario = true">Alta Usuario</button>
+        </div>
+      </div>
+        <app-alta-usuario (cerrarAltaUsuario)="altaUsuario = false" *ngIf="altaUsuario"></app-alta-usuario>
     </div>
 
     <br>
