@@ -25,7 +25,7 @@
                     <td>{{tur.horario}}</td>
                     <td>{{tur.estado}}</td>
                     <td>
-                      <app-cancelar-turno *ngIf="tur.estado == Solicitado" [btnTur]="tur" (recargarGrilla)="cargarPelis($event)"></app-cancelar-turno>
+                      <app-cancelar-turno *ngIf="tur.estado == 'Solicitado'" [btnTur]="tur" (recargarGrilla)="cargarPelis($event)"></app-cancelar-turno>
                   </td>
                 </tr>
             </tbody>
