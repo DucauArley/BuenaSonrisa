@@ -64,7 +64,7 @@ export class AltaTurnoComponent implements OnInit {
     {
       if(!this.recepcion)
       {
-        this.fireStore.collection("turnos").doc(this.especialista + this.fechaTurno).set({
+        this.fireStore.collection("turnos").doc(this.especialista + this.fechaTurno + this.horario).set({
           fecha: this.fechaTurno,
           especialista: this.especialista,
           horario: this.horario,
@@ -78,7 +78,7 @@ export class AltaTurnoComponent implements OnInit {
 
       if(this.recepcion)
       {
-        this.fireStore.collection("turnos").doc(this.especialista + this.fechaTurno).set({
+        this.fireStore.collection("turnos").doc(this.especialista + this.fechaTurno + this.horario).set({
           fecha: this.fechaTurno,
           especialista: this.especialista,
           horario: this.horario,

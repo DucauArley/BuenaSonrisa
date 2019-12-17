@@ -32,14 +32,12 @@ export class ReseniaDetalleComponent implements OnInit {
       setTimeout(()=>{
         this.resenias.forEach(res=>{
          
-          if(this.turno.especialista == res.especialista && this.turno.fecha == res.fecha)//No probe nada
+          if(this.turno.especialista == res.especialista && this.turno.fecha == res.fecha)
           {
             this.resenia = res.reseña;
           }
         });
       }, 1000);
-
-
   }
 
 }

@@ -18,6 +18,7 @@ export class PrincipalEspecialistaComponent implements OnInit {
   public info: Array<any>;
   public email:string = firebase.auth().currentUser.email;
   public turno: any;
+  public encuesta:boolean = false;
 
   constructor(private fireStore: AngularFirestore, private router: Router) { }
 
@@ -148,6 +149,13 @@ ConvertToCSV(objArray: any): string {
     {
       this.resenia2 = true;
     }
+  }
+
+  verEncuesta(tur)
+  {
+    this.turno = tur;
+
+    this.encuesta = true;
   }
 
 }

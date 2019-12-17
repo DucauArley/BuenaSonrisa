@@ -33,6 +33,7 @@ import { EstadisticasEmpleadosComponent } from './componentes/estadisticas-emple
 import { EstadisticasTurnosComponent } from './componentes/estadisticas-turnos/estadisticas-turnos.component';
 import { EstadisticasEspecialidadesComponent } from './componentes/estadisticas-especialidades/estadisticas-especialidades.component';
 import { HeaderComponent } from './componentes/header/header.component';
+import { EncuestaDetalleComponent } from './componentes/encuesta-detalle/encuesta-detalle.component';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { HeaderComponent } from './componentes/header/header.component';
     EstadisticasTurnosComponent,
     EstadisticasEspecialidadesComponent,
     HeaderComponent,
+    EncuestaDetalleComponent,
   ],
   imports: [
     BrowserModule,

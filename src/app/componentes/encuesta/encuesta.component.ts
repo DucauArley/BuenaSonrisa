@@ -39,7 +39,7 @@ export class EncuestaComponent implements OnInit {
         alert("Error al cargar");
       });
 
-      this.fireStore.collection("turnos").doc(this.turno.especialista + this.turno.fecha).set({
+      this.fireStore.collection("turnos").doc(this.turno.especialista + this.turno.fecha + this.turno.horario).set({
         cliente: this.turno.cliente,
         especialista: this.turno.especialista,
         estado: "Encuestado",

@@ -1,0 +1,13 @@
+<form class="contenedor" id="form" style="padding: 50px;">
+
+    <h2>Encuesta:</h2>
+    Puntaje Clinica:
+    <input type="text" class="ok" name="cli" id="cli" [(ngModel)]="encuesta.clinica">
+    Puntaje Especialista:
+    <input type="text" class="ok" name="esp" id="esp" [(ngModel)]="encuesta.especialista">
+    Reseña:
+    <input type="text" class="ok" name="res" id="res" [(ngModel)]="resenia">
+
+    <button class="cancelbtn" (click)="cerrarEncuesta.emit()">Cerrar</button>
+  
+  </form>
