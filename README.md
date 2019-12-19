@@ -5,6 +5,7 @@
 ## Login
 Se puede ingresar a la pagina ya sea con un usuario propio o con los botones
 de abajo que autocompletan el email y la contraseña
+<img src="./imagenesReadme/login.png" border="1">
 
 ## Registro
 Página para registrar solamente clientes
