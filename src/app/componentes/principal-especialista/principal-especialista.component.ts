@@ -15,44 +15,40 @@ export class PrincipalEspecialistaComponent implements OnInit {
   public resenia:boolean = false;
   public resenia2:boolean = false;
   public turnos:Array<any>;
-  public info: Array<any>;
   public email:string = firebase.auth().currentUser.email;
   public turno: any;
   public encuesta:boolean = false;
 
-  constructor(private fireStore: AngularFirestore, private router: Router) { }
+  constructor(private fireStore: AngularFirestore, private router: Router)
+  {
+    let turns = this.fireStore.collection("turnos").snapshotChanges().subscribe(res=>
+      {
+        this.tomarTurnos(res);
+      });
+  }
+
+  tomarTurnos(res)
+  {
+    this.turnos = new Array<any>();
+    let compare;
+
+    res.forEach(item => 
+      {
+        compare = item.payload.doc.data();
+        if(compare["especialista"] == this.email && compare["estado"] != "Cancelado")
+        {
+          this.turnos.push(item.payload.doc.data());
+        }
+    });
+  }
 
   ngOnInit()
   {
-    this.turnos = new Array<any>();
-    this.info = new Array<any>();
-
-    let turns = this.fireStore.collection("turnos").valueChanges();
-
-    turns.forEach(ped=>
-      {
-        ped.forEach(item=>
-          {
-            this.turnos.push(item);
-          })
-      });
-
-      console.log(this.turnos);
-
-    setTimeout(()=>{
-      this.turnos.forEach(tur=>{
-       
-        if(this.email == tur.especialista && tur.estado != "Cancelado")
-        {
-          this.info.push(tur);
-        }
-      });
-    }, 1000);
   }
 
   generatePdf()
   {
-    var data = document.getElementById('tabla');  
+    var data = document.getElementById('tablon');  
     html2canvas(data).then(canvas => {  
       // Few necessary setting options  
       var imgWidth = 208;   
@@ -63,7 +59,9 @@ export class PrincipalEspecialistaComponent implements OnInit {
       const contentDataURL = canvas.toDataURL('image/png')  
       let pdf = new PDF('p', 'mm', 'a4'); // A4 size page of PDF  
       var position = 0;  
-      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)  
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+      pdf.setFontSize(20);
+      pdf.text(35, 25,'La Buena Sonrisa, lista de turnos');
       pdf.save('Turnos.pdf'); // Generated PDF   
     });  
     
@@ -75,7 +73,8 @@ export class PrincipalEspecialistaComponent implements OnInit {
   }
 
   downloadButtonPush() {
-    var csvData = this.ConvertToCSV(this.info);
+    var csvData = this.ConvertToCSV(this.turnos);
+    console.log(csvData);
     var a = document.createElement("a");
     a.setAttribute('style', 'display:none;');
     document.body.appendChild(a);
@@ -85,6 +84,7 @@ export class PrincipalEspecialistaComponent implements OnInit {
     a.download = 'Turnos.csv';
     a.click();
 }
+
 ConvertToCSV(objArray: any): string {
     var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
     var str = '';
@@ -92,7 +92,7 @@ ConvertToCSV(objArray: any): string {
 
     for (var index in objArray[0]) {
         //Now convert each value to string and comma-separated
-        row += index + ',';
+        row += index + ';';
     }
     row = row.slice(0, -1);
     //append Label row with line break
@@ -101,7 +101,7 @@ ConvertToCSV(objArray: any): string {
     for (var i = 0; i < array.length; i++) {
         var line = '';
         for (var index in array[i]) {
-            if (line != '') line += ','
+            if (line != '') line += ';'
 
             line += array[i][index];
         }
@@ -119,7 +119,7 @@ ConvertToCSV(objArray: any): string {
 
   atender(turno)
   {
-    this.fireStore.collection('turnos').doc(turno.especialista + turno.fecha).set({
+    this.fireStore.collection('turnos').doc(turno.especialista + turno.fecha + turno.horario).set({
       fecha: turno.fecha,
       especialista: turno.especialista,
       horario: turno.horario,
@@ -129,11 +129,6 @@ ConvertToCSV(objArray: any): string {
     {
       alert("Error al cargar");
     });
-
-    this.turnos = new Array<any>();
-    this.info = new Array<any>();
-
-    this.ngOnInit();
 
   }
 

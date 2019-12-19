@@ -38,7 +38,6 @@ export class EncuestaDetalleComponent implements OnInit {
           if(this.turno.especialista == enc.nombreEspecialista && this.turno.fecha == enc.fecha && this.turno.cliente == enc.cliente)
           {
             this.encuesta = enc;
-            this.resenia = enc.reseña;
           }
         });
 

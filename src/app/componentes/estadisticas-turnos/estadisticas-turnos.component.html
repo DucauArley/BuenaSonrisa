@@ -1,17 +1,32 @@
+<app-spinner></app-spinner>
 <app-header></app-header>
+<br><br>
 <div class="row">
-        <div class="col-md-12">
-            <h1>Lista de Turnos:</h1>
-            <button (click)="turnosRecepcion()">Turnos emitidos por recepcionistas</button>
-            <button (click)="turnosClientes()">Turnos emitidos por clientes</button>
-            <button (click)="turnosCanceladosEspecialidad()">Turnos cancelados por especialidad</button>
-            <button (click)="turnosRealizadosEspecialidad()">Turnos realizados por especialidad</button>
+        <div align="center" class="col-md-12">
+            <h1 style="color: white;">Lista de Turnos:</h1>
+            <ul class="nav nav-tabs nav-fill" style=" background-color: lightgrey;">
+                <li class="nav-item">
+                    <a class="nav-item nav-link" (click)="turnosRecepcion()" >Turnos emitidos por recepcionistas</a> 
+                </li>
+    
+                <li class="nav-item">
+                    <a class="nav-item nav-link" (click)="turnosClientes()">Turnos emitidos por clientes</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-item nav-link" (click)="turnosCanceladosEspecialidad()">Turnos cancelados por especialidad</a>
+                </li>
+    
+                <li class="nav-item">
+                    <a class="nav-item nav-link" (click)="turnosRealizadosEspecialidad()">Turnos realizados por especialidad</a>
+                </li>   
+        </ul>
 
             <select class="ok" name="name" id="name" *ngIf="turnCanc" (change)="turnosCanceladosEspecialidad()" required [(ngModel)]="especialidad">
                 <option>Mecanica</option>
                 <option>Imagenes</option>
                 <option>Clinico</option>                        
-            </select><br>
+            </select>
             <select class="ok" name="name" id="name" *ngIf="turnReal" (change)="turnosRealizadosEspecialidad()" required [(ngModel)]="especialidad">
                 <option>Mecanica</option>
                 <option>Imagenes</option>
@@ -28,7 +43,7 @@
                     </tr>
                 </thead>
                 <tbody style="text-align: center" *ngFor="let tur of info">
-                    <tr>
+                    <tr [appColorCursor]="rojo">
                         <td>{{tur.cliente}}</td> 
                         <td>{{tur.especialista}}</td>
                         <td>{{tur.fecha}}</td>

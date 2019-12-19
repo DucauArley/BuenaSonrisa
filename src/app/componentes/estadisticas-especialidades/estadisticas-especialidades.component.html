@@ -1,13 +1,37 @@
+<app-spinner></app-spinner>
 <app-header></app-header>
 
+<br><br>
+<div class="row">
+    <div class="col-12" align="center">
+        <label style="color: white; font-size: xx-large;">Especialidad mas usada</label>
+        <input type="text" [(ngModel)]="espMas"  name="uname">
 
-Especialidad mas usada<br>
-<input type="text" [(ngModel)]="espMas"  name="uname"><br><br>
-
-Especialidad menos usada<br>
-<input type="text" [(ngModel)]="espMenos"  name="uname"><br><br>
-
-Mejores comentarios<br>
-
-
-Peores comentarios<br>
+        <label style="color: white; font-size: xx-large;">Especialidad menos usada</label>
+        <input type="text" [(ngModel)]="espMenos"  name="uname">
+    </div>
+    
+    <div align="center" class="col-md-12">
+        <h1 style="color: white;">Lista de Encuestas:</h1>
+        <table class="tabla table table-info" id="tabla" cellspacing="0" style="text-align: center">
+            <thead>
+                <tr>
+                    <th>Cliente</th>
+                    <th>Clinica</th>
+                    <th>Especialista</th>
+                    <th>Nombre Especialista</th>
+                    <th>Reseña</th>
+                </tr>
+            </thead>
+            <tbody style="text-align: center" *ngFor="let enc of encuestas">
+                <tr [appColorEncuesta]="enc.clinica">
+                    <td>{{enc.cliente}}</td>
+                    <td>{{enc.clinica}}</td> 
+                    <td>{{enc.especialista}}</td>
+                    <td>{{enc.nombreEspecialista}}</td>
+                    <td>{{enc.resenia}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

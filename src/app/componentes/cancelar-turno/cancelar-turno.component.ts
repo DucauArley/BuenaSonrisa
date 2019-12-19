@@ -22,7 +22,7 @@ export class CancelarTurnoComponent implements OnInit {
 
   Borrar()
   {
-      this.fireStore.collection('turnos').doc(this.btnTur.especialista + this.btnTur.fecha).set({
+      this.fireStore.collection('turnos').doc(this.btnTur.especialista + this.btnTur.fecha + this.btnTur.horario).set({
       fecha: this.btnTur.fecha,
       especialista: this.btnTur.especialista,
       horario: this.btnTur.horario,

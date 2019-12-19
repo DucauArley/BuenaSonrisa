@@ -25,7 +25,7 @@ h3
 }
 .tabla
 {
-    width: 100%;
+    width: 50%;
     border: 0;
     border-collapse: collapse;
     text-align: left;
@@ -57,5 +57,6 @@ button {
   }
 .color2
 {
+  width: 85%;
   background-color: darkgrey;
 }

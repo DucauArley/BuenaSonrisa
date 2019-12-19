@@ -7,6 +7,16 @@
     background-size: cover;
     position: relative;
 }
+.imgcontainer {
+    text-align: center;
+    margin: 14px 0 2px 0;
+}
+
+img.avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
 
 :host 
 {          

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
-
 @Component({
   selector: 'app-principal-recepcionista',
   templateUrl: './principal-recepcionista.component.html',
@@ -11,40 +10,36 @@ export class PrincipalRecepcionistaComponent implements OnInit {
 
   public turnos: Array<any>;
   public altaTurno:boolean = false;
-  public info: Array<any>;
 
+  constructor(private fireStore: AngularFirestore)
+  {
+    let turns = this.fireStore.collection("turnos").snapshotChanges().subscribe(res=>
+      {
+        this.tomarTurnos(res);
+      });
+  }
 
-  constructor(private fireStore: AngularFirestore) { }
+  tomarTurnos(res)
+  {
+    this.turnos = new Array<any>();
+    let compare;
+
+    res.forEach(item => 
+      {
+        compare = item.payload.doc.data();
+        if(compare["estado"] != "Cancelado")
+        {
+          this.turnos.push(item.payload.doc.data());
+        }
+    });
+  }
 
   ngOnInit() {
-    this.turnos = new Array<any>();
-    this.info = new Array<any>();
-    let turns = this.fireStore.collection("turnos").valueChanges();
-
-    turns.forEach(ped=>
-      {
-        ped.forEach(item=>
-          {
-            this.turnos.push(item);
-          })
-      });
-
-      setTimeout(()=>{
-        this.turnos.forEach(tur=>{
-         
-          if(tur.estado != "Cancelado")
-          {
-            this.info.push(tur);
-          }
-        });
-      }, 1000);
-
   }
 
   cargarPelis($event)
   {
     console.log($event);
-    this.turnos = new Array<any>();
   }
 
 }

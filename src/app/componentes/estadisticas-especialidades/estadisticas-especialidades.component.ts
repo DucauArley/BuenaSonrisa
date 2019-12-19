@@ -10,8 +10,9 @@ export class EstadisticasEspecialidadesComponent implements OnInit {
 
   public turnos:Array<any>;
   public usuarios: Array<any>;
-  public espMas:string;
-  public espMenos:string;
+  public espMas:string = "No hay";
+  public espMenos:string = "No hay";
+  public encuestas: Array<any>;
 
   constructor(private fireStore: AngularFirestore) { }
 
@@ -19,6 +20,7 @@ export class EstadisticasEspecialidadesComponent implements OnInit {
   {
     this.usuarios = new Array<any>();
     this.turnos = new Array<any>();
+    this.encuestas = new Array<any>();
     let mecanicos: Array<any> = new Array<any>();
     let imagenes: Array<any> = new Array<any>();
     let clinicos: Array<any> = new Array<any>();
@@ -28,6 +30,7 @@ export class EstadisticasEspecialidadesComponent implements OnInit {
 
     let turns = this.fireStore.collection("turnos").valueChanges();
     let us = this.fireStore.collection("usuarios").valueChanges();
+    let enc = this.fireStore.collection("encuestas").valueChanges();
 
     turns.forEach(ped=>
       {
@@ -44,7 +47,14 @@ export class EstadisticasEspecialidadesComponent implements OnInit {
               this.usuarios.push(item);
             })
         });
-  
+
+      enc.forEach(ped=>
+      {
+        ped.forEach(item=>
+          {
+            this.encuestas.push(item);
+          })
+      });
 
       setTimeout(()=>
       {

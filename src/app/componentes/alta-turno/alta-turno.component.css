@@ -4,7 +4,7 @@ form {
 }
 .ok{
     width: 100%;
-    padding: 12px 20px;
+    padding: 8px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
@@ -13,7 +13,7 @@ form {
 .error
 {
   width: 100%;
-  padding: 12px 20px;
+  padding: 8px 20px;
   margin: 8px 0;
   display: inline-block;
   box-sizing: border-box;
@@ -24,13 +24,12 @@ form {
 {
 	position: fixed;
 	width: 35%;
-	border-radius: 5px;
+    border-radius: 5px;
 	background-color: lightgrey;
-	padding: 20px;
 	box-sizing: border-box;
 	margin: 20px auto;
-	left: 32%;
-	top: 25px;
+    left: 32%;
+    top:0px;
 	animation-name: aparecer;
 	animation-duration: 4s;
 }
@@ -41,7 +40,7 @@ form {
 }
 input[type=text], input[type=password] {
     width: 100%;
-    padding: 12px 20px;
+    padding: 8px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;

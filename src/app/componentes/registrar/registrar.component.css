@@ -1,7 +1,6 @@
 form {
-  border: 10px solid #F9AF38;
   padding: 10px;
-  background:#141D3F;
+  background:#3d00ad;
 }
 input[type=text], input[type=password] {
   width: 100%;
@@ -10,6 +9,11 @@ input[type=text], input[type=password] {
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
+}
+
+.color1
+{
+    color: #f9af38;
 }
 
 button {
@@ -44,6 +48,23 @@ button:hover {
 img.avatar {
   width: 40%;
   border-radius: 50%;
+}
+.ok{
+  width: 100%;
+  padding: 8px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+.error
+{
+width: 100%;
+padding: 8px 20px;
+margin: 8px 0;
+display: inline-block;
+box-sizing: border-box;
+border: 1px solid red;
 }
 
 .container {

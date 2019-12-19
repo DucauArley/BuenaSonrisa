@@ -5,13 +5,16 @@
   <div *ngIf="recepcion">
     <label>Email</label>
     <input type="text"  class="ok" required name="mail" id="mail" [(ngModel)]="mail"/>
+    <label *ngIf="errorMail" style="color: red;">Se debe ingresar un email valido</label>
   </div>
 
   <label>Indique la fecha del turno</label>
-  <input type="date"  class="ok" required name="turno" id="turno" [(ngModel)]="fechaTurno"/>
+  <input type="date" min="2019-12-19" max="2020-01-31" class="ok" required name="turno" id="turno" [(ngModel)]="fechaTurno"/>
+  <label *ngIf="errorFecha" style="color: red;">Se debe ingresar una fecha valida</label>
 
   <label>Indique el horario del turno</label>
-  <input type="time" class="ok" name="hora" id="hora" [(ngModel)]="horario">
+  <input type="time" max="19:00" min="08:00" class="ok" name="hora" id="hora" [(ngModel)]="horario">
+  <label *ngIf="errorHorario" style="color: red;">Se debe ingresar un horario valido</label><br>
 
   <label>Especialista</label>
     <select class="ok" name="esp" id="esp" required [(ngModel)]="especialista">

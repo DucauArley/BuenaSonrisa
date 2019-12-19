@@ -1,19 +1,41 @@
-# Buena Sonrisa-
+# Buena Sonrisa
 
 # https://DucauArley.github.io/BuenaSonrisa/.
 
-“La clínica Buena Sonrisa, especialista en salud dental, cuenta actualmente con siete consultorios (más otros tres que están en construcción), dos laboratorios (uno especializado en diagnóstico por imágenes, y otro en mecánica dental), y una sala de espera general. Está abierta al público de lunes a viernes en el horario de 8:00 a 19:00, y los sábados en el horario de 8:00 a 14:00. Trabajan en ella profesionales de diversas especialidades, que ocupan los consultorios acorde a su disponibilidad, y reciben en ellos pacientes con turno para consulta o tratamiento. Dichos turnos son asignados de forma centralizada por el área de recepción, que recibe las solicitudes personalmente, por teléfono, por e-mail o a través del sitio web de la clínica. La duración mínima de un turno es de 15 minutos.”
+##Login
+Se puede ingresar a la pagina ya sea con un usuario propio o con los botones
+de abajo que autocompletan el email y la contraseña
 
-Tipos de Usuarios y Tareas a Realizar
-Administrador
-Puede dar de alta (Clientes, Especialistas, Recepcionista).
-Podrá ver los log por día. Podrá ver las encuesta que cumpleraron los clientes.
+##Registro
+Página para registrar solamente clientes
 
-Cliente
-El cliente puede pedir un turno y seleccionar el especialista. El cliente puede ver los turnos pedidos y cancelarlos Al terminar la visita con el especialista, el cliente podrá realizar una encuesta. Podrá ver la reseña del especialista
+##Principal Admin
+En esta página se podran elegir las estadisticas a visualizar y registrar
+un nuevo usuario, ya sea un especialista, un recepcionista o un cliente
 
-Recepcionista
-El recepcionista puede pedir un turno para un cliente que llamó de forma telefónica o para un tratamiento pedido por el especialista. El recepcionista podrá cancelar turnos.
+###Estadisticas Empleados
+Aqui se pueden ver los turnos dependiendo de las especialidades
 
-Especialistas
-El especialista podrá ver los turnos que tiene por fecha. Podrá atender o cancelar en caso de no asistencia. Permite cargar un breve reseña de los trabajos realizados en el paciente.
+###Estadisticas Turnos
+Aqui se pueden ver distintas opciones sobre los turnos: los emitidos por 
+recepcionistas, los emitidos por clientes, los cancelados por especialidad
+y los finalizados por especialidad
+
+###Estadisticas Especialidades
+Aqui se pueden ver las especialidades mas y menos usadas, y una lista de 
+las encuestas
+
+##Principal Especialista
+En esta página, se le mostrara una tabla de todos los turnos que tiene y 
+tuvo al especialista, y este podra atenderlos, escribir una reseña, leer
+esa reseña, leer la encuesta que haya hecho el usuario, descargar un archivo
+pdf y descargar un archivo excel
+
+##Principal Recepcionista
+Aqui se muestran todos los turnos que no esten cancelados, ademas se podran 
+pedir turnos para clientes que no esten registrados y cancelar turnos solicitados
+
+##Principal Cliente
+En esta página, se veran los turnos correspondientes al cliente, tambien podra
+ver las recenias que hagan los especialistas y podran hacer encuestas de 
+satisfaccion

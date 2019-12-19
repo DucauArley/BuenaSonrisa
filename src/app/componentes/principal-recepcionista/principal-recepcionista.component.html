@@ -2,9 +2,9 @@
 <app-header></app-header>
 
 <body class="panel">
-<div class="hero-text">
-  <div class="row">
-    <div class="col-md-12 color2">
+  <br><br>
+<div align="center">
+    <div class="color2">
         <h1>Lista de Turnos:</h1>
         <table class="tabla table table-info" cellspacing="0" style="text-align: center">
             <thead>
@@ -16,12 +16,12 @@
                     <th>Estado</th>
                 </tr>
             </thead>
-            <tbody style="text-align: center" *ngFor="let tur of info">
+            <tbody style="text-align: center" *ngFor="let tur of turnos">
                 <tr>
                     <td>{{tur.cliente}}</td> 
                     <td>{{tur.especialista}}</td>
-                    <td>{{tur.fecha}}</td>
-                    <td>{{tur.horario}}</td>
+                    <td>{{tur.fecha | fecha}}</td>
+                    <td>{{tur.horario | hora}}</td>
                     <td>{{tur.estado}}</td>
                     <td>
                       <app-cancelar-turno *ngIf="tur.estado == 'Solicitado'" [btnTur]="tur" (recargarGrilla)="cargarPelis($event)"></app-cancelar-turno>
@@ -29,10 +29,10 @@
                 </tr>
             </tbody>
         </table>
+        <br>
     </div>
     <button (click)="altaTurno = true">Pedir Turno</button>
     <button routerLink="/ConsultoriosOcupados" class="cancelbtn">Ver Consultorios</button>
-  </div>
 </div>
 <app-alta-turno (cerrarAltaTurno)="altaTurno = false" [recepcion]="true" [turnos]="turnos" *ngIf="altaTurno"></app-alta-turno>
 

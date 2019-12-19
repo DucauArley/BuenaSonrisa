@@ -30,7 +30,7 @@ export class EncuestaComponent implements OnInit {
       this.fireStore.collection("encuestas").doc(this.turno.cliente + this.resenia).set({
         clinica: this.clinica,
         especialista: this.especialista,
-        reseña: this.resenia,
+        resenia: this.resenia,
         cliente: this.turno.cliente,
         nombreEspecialista: this.turno.especialista,
         fecha: this.turno.fecha

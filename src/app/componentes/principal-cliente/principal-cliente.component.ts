@@ -12,38 +12,37 @@ export class PrincipalClienteComponent implements OnInit {
 
   public altaTurno:boolean = false;
   public turnos: Array<any>;
-  public info: Array<any>;
   public encuesta:boolean = false;
   public resenia:boolean = false;
   public email = firebase.auth().currentUser.email;
   public turno: any;
 
-  constructor(private fireStore: AngularFirestore, private router: Router) { }
+  constructor(private fireStore: AngularFirestore, private router: Router)
+  {
+    let turns = this.fireStore.collection("turnos").snapshotChanges().subscribe(res=>
+      {
+        this.tomarTurnos(res);
+      });
+  }
+
+  tomarTurnos(res)
+  {
+    this.turnos = new Array<any>();
+    let compare;
+
+    res.forEach(item => 
+      {
+        compare = item.payload.doc.data();
+        if(compare["cliente"] == this.email && compare["estado"] != "Cancelado")
+        {
+          this.turnos.push(item.payload.doc.data());
+        }
+    });
+  }
 
   ngOnInit() 
   {
-    this.turnos = new Array<any>();
-    this.info = new Array<any>();
-    let turns = this.fireStore.collection("turnos").valueChanges();
-
-    turns.forEach(tur=>
-      {
-        tur.forEach(item=>
-          {
-            this.turnos.push(item);
-          })
-      });
-
-      setTimeout(()=>{
-        this.turnos.forEach(tur=>{
-          
-          if(this.email == tur.cliente && tur.estado != "Cancelado")
-          {
-            this.info.push(tur);
-          }
-        });
-      }, 1000);
-
+    
   }
 
   ruteando()

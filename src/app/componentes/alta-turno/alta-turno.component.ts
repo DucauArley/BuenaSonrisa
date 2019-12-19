@@ -22,6 +22,10 @@ export class AltaTurnoComponent implements OnInit {
   public especialista: string = "especialista@especialista.com";
   public horario:number;
   public mail:string;
+  public hoy:any = new Date();
+  public errorMail:boolean = false;
+  public errorFecha:boolean = false;
+  public errorHorario:boolean = false;
   
   constructor(private fireStore: AngularFirestore, private datePipe: DatePipe)
   { 
@@ -37,6 +41,9 @@ export class AltaTurnoComponent implements OnInit {
           })
       });
 
+      this.hoy = this.datePipe.transform(this.hoy, 'yyyy-MM-dd');
+
+      console.log(this.hoy);
   }
 
   ngOnInit() 
@@ -104,6 +111,11 @@ export class AltaTurnoComponent implements OnInit {
     let fecha:any = new Date();
     let retorno:boolean = true;
     let okTur:boolean = true;
+
+    this.errorMail = false;
+    this.errorFecha = false;
+    this.errorHorario = false;
+
     document.getElementById("turno").classList.remove("error");
     document.getElementById("esp").classList.remove("error");
     document.getElementById("hora").classList.remove("error");
@@ -151,12 +163,14 @@ export class AltaTurnoComponent implements OnInit {
     if(isUndefined(this.fechaTurno))
     {
       document.getElementById("turno").classList.add("error");
+      this.errorFecha = true;
       retorno = false;
     }
 
     if(isUndefined(this.horario))
     {
       document.getElementById("hora").classList.add("error");
+      this.errorHorario = true;
       retorno = false;
     }
 
@@ -165,6 +179,7 @@ export class AltaTurnoComponent implements OnInit {
       if(isUndefined(this.mail))
       {
         document.getElementById("mail").classList.add("error");
+        this.errorMail = true;
         retorno = false;
       }
     }

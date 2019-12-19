@@ -39,6 +39,8 @@ export class EstadisticasTurnosComponent implements OnInit {
             this.usuarios.push(item);
           })
       });
+
+      this.turnosRecepcion();
   }
 
   ngOnInit()

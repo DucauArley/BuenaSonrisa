@@ -34,6 +34,13 @@ import { EstadisticasTurnosComponent } from './componentes/estadisticas-turnos/e
 import { EstadisticasEspecialidadesComponent } from './componentes/estadisticas-especialidades/estadisticas-especialidades.component';
 import { HeaderComponent } from './componentes/header/header.component';
 import { EncuestaDetalleComponent } from './componentes/encuesta-detalle/encuesta-detalle.component';
+import { ColorEncuestaDirective } from './directivas/color-encuesta.directive';
+import { ColorCursorDirective } from './directivas/color-cursor.directive';
+import { ColorTurnosDirective } from './directivas/color-turnos.directive';
+import { FechaPipe } from './pipes/fecha.pipe';
+import { DatePipe } from '@angular/common';
+import { HoraPipe } from './pipes/hora.pipe';
+import { MayusculasPipe } from './pipes/mayusculas.pipe';
 
 
 @NgModule({
@@ -59,6 +66,12 @@ import { EncuestaDetalleComponent } from './componentes/encuesta-detalle/encuest
     EstadisticasEspecialidadesComponent,
     HeaderComponent,
     EncuestaDetalleComponent,
+    ColorEncuestaDirective,
+    ColorCursorDirective,
+    ColorTurnosDirective,
+    FechaPipe,
+    HoraPipe,
+    MayusculasPipe,
   ],
   imports: [
     BrowserModule,
@@ -72,7 +85,7 @@ import { EncuestaDetalleComponent } from './componentes/encuesta-detalle/encuest
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule
   ],
-  providers: [AuthService, AngularFireAuth, AngularFirestore],
+  providers: [AuthService, AngularFireAuth, AngularFirestore, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

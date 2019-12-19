@@ -2,19 +2,63 @@
 <app-header></app-header>
 
 <body class="panel">
-    <div class="container center" >
+    <br><br>
 
-      <div class="hero-text color1">
-        <div class="row">
-          <button class="acept2btn" routerLink="/EstadisticasEmpleados">Estadisticas de Empleados</button>
-          <button class="cancelbtn" routerLink="/EstadisticasTurnos">Estadisticas de Turnos</button>
-          <button class="cancel2btn" routerLink="/EstadisticasEspecialidades">Estadisticas de Especialidades</button>
-          <button class="aceptbtn" (click)="altaUsuario = true">Alta Usuario</button>
+    <div class="container color1" >
+      <div class="row color1">
+          <div class="d-flex w-100 justify-content-center">
+              <h2 class="mb-1" style="color: white;">Menu Principal</h2>
+          </div>
+      </div>
+     <div class="row">
+       <div class="col-lg-6">
+          <div class="acept2btn" routerLink="/EstadisticasEmpleados">
+              <div class="media">
+                <div class="media-body">
+                  <h2 class="media-heading">Estadisticas de Empleados</h2>
+                  <p><br><br></p>
+                </div>
+              </div>
+          </div>
+       </div>
+       <div class="col-lg-6">
+          <div class="cancelbtn" routerLink="/EstadisticasTurnos">
+                <div class="media">
+                  <div class="media-body">
+                    <h2 class="media-heading">Estadisticas de Turnos</h2>
+                    <p><br><br></p>
+                  </div>
+                </div> 
+            </div>
+          </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="cancel2btn" routerLink="/EstadisticasEspecialidades">
+              <div class="media">
+                <div class="media-body">
+                  <h2 class="media-heading">Estadisticas de las Especialidades</h2>
+                  <p><br><br></p>
+                </div>
+               
+              </div> 
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="aceptbtn" (click)="altaUsuario = true">
+              <div class="media">
+                <div class="media-body">
+                  <h2 class="media-heading">Alta de Usuarios</h2>
+                  <p><br><br></p>
+                </div>
+              </div> 
+          </div>
         </div>
       </div>
-        <app-alta-usuario (cerrarAltaUsuario)="altaUsuario = false" *ngIf="altaUsuario"></app-alta-usuario>
+      <br>
     </div>
-
+    <app-alta-usuario (cerrarAltaUsuario)="altaUsuario = false" *ngIf="altaUsuario"></app-alta-usuario>
     <br>
     <br>
     <br>
