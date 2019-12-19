@@ -32,7 +32,7 @@
         <br>
     </div>
     <button (click)="altaTurno = true">Pedir Turno</button>
-    <button routerLink="/ConsultoriosOcupados" class="cancelbtn">Ver Consultorios</button>
+    <!--<button routerLink="/ConsultoriosOcupados" class="cancelbtn">Ver Consultorios</button>-->
 </div>
 <app-alta-turno (cerrarAltaTurno)="altaTurno = false" [recepcion]="true" [turnos]="turnos" *ngIf="altaTurno"></app-alta-turno>
 
